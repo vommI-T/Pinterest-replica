@@ -1,0 +1,472 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Inter", sans-serif;
+	width: 100%;
+	overflow-x:hidden;
+	overflow-y: scroll;
+}
+
+/* ========== NAV START ========== */
+
+.nav {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.nav-container {
+	display: flex;
+	height: 80px;
+	align-items: center;
+	gap: 8px;
+	width: calc(100% - 16px);
+}
+
+.searchbar {
+	display: flex;
+	height: 48px;
+	width: 100%;
+	background-color: #d9d9d9;
+	border-radius: 24px;
+	align-items: center;
+	padding: 0 16px;
+	gap: 16px;
+	color: #767676;
+}
+
+.searchbar input {
+	border: none;
+	background-color: transparent;
+	color: rgb(51, 51, 51);
+	font-size: 16px;
+	height: 100%;
+	width: 100%;
+	outline: none;
+	display: flex;
+	align-items: center;
+}
+
+.logo {
+	height: 48px;
+	aspect-ratio: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	border-radius: 24px;
+}
+.logo:hover {
+	animation: bg-white-fade 0.2s ease-out forwards;
+}
+
+.navlinks {
+	display: flex;
+	gap: 8px;
+}
+
+.navlink {
+	height: 48px;
+	display: flex;
+	align-items: center;
+	border-radius: 24px;
+	color: black;
+	text-decoration: none;
+	padding: 0px 15px;
+	background-color: white;
+	font-weight: 600;
+}
+
+.navlink:hover {
+	animation: button_transition 0.2s ease-in forwards;
+}
+
+@keyframes button_transition {
+	0% {
+		background-color: white;
+		color: black;
+	}
+	100% {
+		background-color: black;
+		color: white;
+	}
+}
+
+.right-nav {
+	display: flex;
+	gap: 8px;
+}
+
+.right-nav .message,
+.notification,
+.profile {
+	height: 48px;
+	width: 48px;
+	border-radius: 24px;
+	background-color: white;
+}
+
+.right-nav .message,
+.profile {
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.right-nav .notification {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+@keyframes dropdown-animation {
+	0% {
+		padding: 0px;
+		height: 0px;
+		opacity: 1;
+	}
+	100% {
+		padding: 16px;
+		height: 328px;
+		opacity: 1;
+	}
+}
+
+.right-nav .notification .notification-dropdown {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	width: 344px;
+	height: 0;
+	opacity: 1;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	border-radius: 30px;
+	gap: 8px;
+	z-index: 10;
+	box-shadow: rgba(0, 0, 0, 0.1) -3px 4px 14px 0px;
+	overflow-y: auto;
+	scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+.right-nav .notification .notification-dropdown::-webkit-scrollbar {
+	width: 0;
+}
+
+/* Onclick show dropdown */
+.right-nav .notification .dropdown-active {
+	opacity: 1;
+	animation: dropdown-animation 0.3s ease-in-out forwards;
+}
+
+.right-nav .notification .notification-dropdown .notification-content {
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: fit-content;
+	padding: 16px;
+	border-radius: 16px;
+}
+
+.right-nav .notification .notification-dropdown .notification-content:hover {
+	animation: bg-white-fade ease-out 0.2s forwards;
+}
+
+.right-nav .notification .notification-dropdown .notification-content .main {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.right-nav
+	.notification
+	.notification-dropdown
+	.notification-content
+	.main
+	.image {
+	width: 54px;
+	height: 72px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.right-nav
+	.notification
+	.notification-dropdown
+	.notification-content
+	.main
+	.image
+	img {
+	width: 100%;
+	height: 100%;
+}
+.right-nav .notification .notification-dropdown .notification-content .details {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	height: 100%;
+	padding: 0 10px;
+	gap: 4px;
+}
+
+.right-nav
+	.notification
+	.notification-dropdown
+	.notification-content
+	.details
+	.timeframe {
+	color: #838383;
+	font-size: 12px;
+}
+
+.right-nav
+	.notification
+	.notification-dropdown
+	.notification-content
+	.details
+	.menu {
+	width: 24px;
+	height: 24px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 12px;
+}
+
+.profile img {
+	height: 100%;
+	width: 100%;
+}
+
+.right-nav .carot {
+	display: flex;
+	height: 48px;
+	width: 48px;
+	background-color: white;
+	border-radius: 24px;
+	justify-content: center;
+	align-items: center;
+}
+
+.right-nav .carot:hover,
+.message:hover,
+.notification:hover,
+.profile:hover {
+	animation: bg-white-fade ease-out 0.2s forwards;
+}
+
+.right-nav .carot img {
+	height: 36px;
+	width: 36px;
+}
+
+/* ========== NAV END ========== */
+
+/* ========== CONTENT START ========== */
+
+/* ========== Categories Start ==========*/
+/* TODO: Create  */
+.categories {
+	height: 140px;
+	display: flex;
+	overflow-x: auto;
+	white-space: nowrap;
+	scroll-behavior: smooth;
+	align-items: center;
+	padding: 0 32px;
+	gap: 36px;
+}
+.categories::-webkit-scrollbar {
+	width: 0;
+}
+
+.category-card {
+	flex: 0 0 auto; /* Prevent items from shrinking */
+	background-color: #d9d9d9;
+	border-radius: 16px;
+	width: 300px;
+	height: 110px;
+	display: flex;
+	justify-content: left;
+	padding-left: 16px;
+	gap: 40px;
+	align-items: center;
+}
+
+.categories .image {
+	width: 64px;
+	height: 64px;
+	border-radius: 16px;
+	overflow: hidden;
+}
+.categories .image img {
+	width: 100%;
+	height: 100%;
+}
+
+.categories .details {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 4px;
+}
+
+.categories .details .upper {
+	font-size: 12px;
+}
+
+.categories .details .category-name {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+/* ========== Categories End ==========*/
+/* ========= FEEDS Start ======== */
+.feeds {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap; /* Allow wrapping */
+	justify-content: center; /* Align items to the start (left) */
+	overflow: visible;
+}
+
+.feeds .feeds-card {
+	height: 300px;
+	width: 200px;
+	border-radius: 16px;
+	position: relative; /* Added to create a stacking context for child elements */
+	overflow: hidden; /* Optional: hides overflow if needed */
+}
+
+.feeds .feeds-card .image {
+	position: absolute; /* Use absolute positioning to ensure it stacks */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 16px;
+	z-index: 1; /* Ensures it stays beneath hover-content */
+}
+
+.feeds .feeds-card .image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 1;
+}
+
+@keyframes card-hover-show {
+	0% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+
+.feeds .feeds-card .hover-content {
+	position: absolute; /* Absolute to stack over .image */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2; /* Higher z-index makes it appear above .image */
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	opacity: 0%;
+}
+
+.feeds .feeds-card:hover .hover-content {
+	animation: card-hover-show 0.2s linear forwards;
+}
+
+.feeds .feeds-card .hover-content .upper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 12px;
+	padding: 8px;
+	color: white;
+}
+
+.feeds .feeds-card .hover-content .upper .save-btn {
+	background-color: #e60023;
+	padding: 4px 8px;
+	border-radius: 12px;
+}
+
+.feeds .feeds-card .hover-content .lower {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 10px;
+	padding: 8px;
+}
+
+.feeds .feeds-card .hover-content .lower .link {
+	background-color: white;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	padding: 4px;
+}
+
+@keyframes bg-white-fade {
+	0% {
+		background-color: white;
+	}
+	100% {
+		background-color: #d9d9d9;
+	}
+}
+
+.feeds .feeds-card .hover-content .lower .link:hover,
+.upload:hover,
+.kebab:hover {
+	animation: bg-white-fade linear 0.2s forwards;
+}
+
+.feeds .feeds-card .hover-content .lower .menu {
+	display: flex;
+	gap: 8px;
+}
+
+.feeds .feeds-card .hover-content .lower .menu .upload {
+	height: 24px;
+	width: 24px;
+	overflow: hidden;
+	border-radius: 12px;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.feeds .feeds-card .hover-content .lower .menu .kebab {
+	height: 24px;
+	width: 24px;
+	overflow: hidden;
+	border-radius: 12px;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* ========= FEEDS End ======== */
+
+/* ========== CONTENT END ========== */
